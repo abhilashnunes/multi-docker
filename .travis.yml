@@ -15,3 +15,11 @@ after_success:
   - docker build -t an071093/multi-server ./server
   - docker build -t an071093/multi-worker ./worker
 
+# Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+
+# Take those images and push them to docker hub
+  - docker push an071093/multi-client
+  - docker push an071093/multi-nginx
+  - docker push an071093/multi-server
+  - docker push an071093/multi-worker
