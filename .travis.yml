@@ -25,14 +25,14 @@ after_success:
   - docker push an071093/multi-worker
 
 # adding our AWS variables to the deploy script of the .travis.yml file.
-  deploy:
-    provider: elasticbeanstalk
-    region: 'ap-southeast-2'
-    app: 'multi-docker'
-    env: 'MultiDocker-env'
-    bucket_name: 'elasticbeanstalk-ap-southeast-2-072600873482'
-    bucket_path: 'docker-multi'
-    on:
-      branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-southeast-2'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_name: 'elasticbeanstalk-ap-southeast-2-072600873482'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
