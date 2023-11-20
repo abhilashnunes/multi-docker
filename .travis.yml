@@ -4,7 +4,7 @@ services:
 
 before_install:
   - docker build -t an071093/react-test -f ./client/Dockerfile.dev ./client
-  
+
 script:
   - docker run -e CI=true an071093/react-test npm test
 
@@ -34,4 +34,5 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
